@@ -24,3 +24,12 @@ def model_evaliation(Y_predicted, Y_test):
     r2_value = r2_score(Y_predicted, Y_test)
 
     return (mae, mse, r2_value)
+
+
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            return dill.load(file_obj)
+
+    except Exception as e:
+        raise CustomExceptionMessage(e, sys)
